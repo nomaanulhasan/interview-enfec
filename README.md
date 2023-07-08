@@ -31,7 +31,7 @@ In this project, you can run the following scripts:
 ```npm run preview``` Previews the app from the dist folder after build.
 
 ## Credits
-Vite Template React is built and maintained by [Syed NomanulHasan](https://github.com/nomaanulhasan).
+This project is built and maintained by [Syed NomanulHasan](https://github.com/nomaanulhasan).
 
 ## License
 This project is licensed under the terms of the [MIT license](https://github.com/SafdarJamal/vite-template-react/blob/main/LICENSE).
