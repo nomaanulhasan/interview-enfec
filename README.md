@@ -1,4 +1,5 @@
 # interview-enfec
+This repository is the part of one of my interview tasks.
 
 ## Local Development
 To get a local copy of the code, clone it using git:
