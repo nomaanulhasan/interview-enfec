@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import { TitleBar, HeaderRow, UserPopup, UserRow } from './components';
 import { usersApiUrl } from './utils';
@@ -23,6 +24,7 @@ function App() {
         const data = res.json();
         return data;
       } catch (err) {
+        toast.error('Something went wrong');
         console.error(err);
         return err;
       }
@@ -37,6 +39,7 @@ function App() {
         return data;
       } catch (err) {
         console.error(err);
+        toast.error('Something went wrong');
         return err;
       } finally {
         setTimeout(() => {
@@ -66,9 +69,11 @@ function App() {
         const data = res.json();
         return data;
       } catch (err) {
+        toast.info('Something went wrong');
         console.error(err);
         return err;
       } finally {
+        toast.info('User deleted successfully');
         setDeletedUser(null);
       }
     },

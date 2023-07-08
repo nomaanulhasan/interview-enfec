@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { bool, func, object } from "prop-types";
+import { toast } from 'react-toastify';
 import { userSchema } from "../utils";
 import UserForm from "./UserForm";
 import Modal from "./Modal";
@@ -25,7 +26,8 @@ export default function UserPopup({ userData, close }) {
 		defaultValues: formData,
 	})
 	const onSubmit = (data) => {
-		console.log('Users data saved. \n\n' + JSON.stringify(data, null, 2));
+		toast.info('Users data saved successfully');
+		console.log(JSON.stringify(data, null, 2));
 		close();
 	}
 

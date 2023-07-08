@@ -10,7 +10,7 @@ export default function UserForm({ register, errors }) {
 			<FormInput {...{ register, errors, name: 'phone' }} />
 			<FormInput {...{ register, errors, name: 'website' }} />
 			{/*
-				// TODO: google maps api implementation for capturing user address
+				// TODO: Need to use Geolocation API for capturing user address
 				<FormInput {...{register, errors, name:'address'}} /> */
 			}
 		</div>
