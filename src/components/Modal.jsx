@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
+import { element, string, func, bool } from "prop-types";
 
-export default function Modal({ title, action, children, close }) {
+export default function Modal({ title, action, children, close, footerActions = false }) {
 	return (
 		<div tabIndex="-1" className="fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100vh-1rem)] max-h-full flex justify-center items-center bg-black/50">
 			<div className="relative w-full max-w-md max-h-full">
@@ -23,33 +23,39 @@ export default function Modal({ title, action, children, close }) {
 						</button>
 					</div>
 
-					<div className="p-6 space-y-6">
+					<div className="p-6 space-y-6 max-h-[calc(100vh-200px)] overflow-auto">
 						{children}
 					</div>
 
-					<div className="flex items-center p-6 space-x-2 border-t border-slate-200 rounded-b gap-2">
-						{action && <button type="button" className="
-						bg-indigo-600 hover:bg-indigo-700 py-2 px-6 text-md text-gray-100 transition-all duration-200 rounded-md focus:ring-4 focus:outline-none focus:ring-slate-300
-						font-medium
-						">Update</button>}
+					{footerActions && (<div className="flex flex-col sm:flex-row justify-end items-center p-6 border-t border-slate-200 rounded-b gap-2">
+						{action && <button
+							type="button"
+							className="
+							bg-indigo-600 hover:bg-indigo-700 py-2 px-6 text-md text-gray-100 transition-all duration-200
+							rounded-md focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium w-full sm:w-fit
+						"
+						>Update</button>}
 						<button
 							type="button" onClick={close}
 							className="
-							 bg-white hover:bg-slate-100 py-2 px-6 text-md text-slate-500 transition-all duration-200 rounded-md focus:ring-4 focus:outline-none focus:ring-slate-300
-							 border border-slate-200 font-medium  hover:text-slate-900 focus:z-10
+							 bg-white hover:bg-slate-100 py-2 px-6 text-md text-slate-500
+							 transition-all duration-200 rounded-md focus:ring-4 focus:outline-none focus:ring-slate-300
+							 border border-slate-200 font-medium  hover:text-slate-900 focus:z-10 w-full sm:w-fit
 							"
 						>
 							{action ? 'Cancel' : 'Close'}
 						</button>
-					</div>
+					</div>)}
 				</div>
 			</div>
 		</div>
 	)
 }
+
 Modal.propTypes = {
-	children: PropTypes.element.isRequired,
-	title: PropTypes.string.isRequired,
-	action: PropTypes.func,
-	close: PropTypes.func
+	children: element.isRequired,
+	title: string.isRequired,
+	action: func,
+	close: func,
+	footerActions: bool,
 }
