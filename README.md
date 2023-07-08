@@ -13,13 +13,13 @@ To get a local copy of the code, clone it using git:
 Now, you can start a local web server by running:
 
 ```npm dev```
-And then open http://localhost:5173/ to view it in the browser. (*Port number is subject to availability*)
+And then open ```http://localhost:5173/``` to view it in the browser. (*Port number is subject to availability*)
 
 ### Available Scripts
 In this project, you can run the following scripts:
 
-### Script	Description
 ```npm run dev``` Runs the app in the development mode.
+
 ```npm run build``` Builds the app for production to the dist folder.
 
 ## Credits
