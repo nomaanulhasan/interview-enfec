@@ -7,6 +7,7 @@ import './App.css';
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userId, setUserId] = useState();
+  const [deletedUser, setDeletedUser] = useState(null);
   const togglePopup = () => setIsModalOpen((open) => {
     if (open) {
       setUserId(null)
@@ -37,7 +38,11 @@ function App() {
       } catch (err) {
         console.error(err);
         return err;
-      } finally { togglePopup() }
+      } finally {
+        setTimeout(() => {
+          togglePopup()
+        }, 1);
+      }
     }, {
     // The query will not execute until the userId exists
     enabled: !!userId,
@@ -56,12 +61,15 @@ function App() {
       //   }
       // }
       try {
+        setDeletedUser(userId);
         const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, { method: 'DELETE' });
         const data = res.json();
         return data;
       } catch (err) {
         console.error(err);
         return err;
+      } finally {
+        setDeletedUser(null);
       }
     },
     onSuccess: () => {
@@ -97,7 +105,7 @@ function App() {
                 {...user}
                 key={user.id}
                 openUpdateUserPopup={id => openUpdateUserPopup(id)}
-                isDeleting={deleteUserMutation.isLoading}
+                deletableUserId={deletedUser}
                 deleteUser={(id) => deleteUserMutation.mutate(id)}
               />
             )

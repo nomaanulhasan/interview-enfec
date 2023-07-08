@@ -1,7 +1,7 @@
-import { string, func, number, bool } from "prop-types";
+import { string, func, number } from "prop-types";
 
 export default function UserRow({
-  id, username, name, email, openUpdateUserPopup, deleteUser, isDeleting
+  id, username, name, email, openUpdateUserPopup, deleteUser, deletableUserId
 }) {
   return (
     <div
@@ -45,9 +45,9 @@ export default function UserRow({
             flex gap-2 items-center
           '
           onClick={() => deleteUser(id)}
-          disabled={isDeleting}
+          disabled={deletableUserId !== null}
         >
-          {isDeleting ? (
+          {deletableUserId === id ? (
             <svg
               height='24'
               width='24'
@@ -96,5 +96,5 @@ UserRow.propTypes = {
   email: string.isRequired,
   openUpdateUserPopup: func,
   deleteUser: func,
-  isDeleting: bool,
+  deletableUserId: number,
 }
