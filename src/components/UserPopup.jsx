@@ -32,8 +32,8 @@ export default function UserPopup({ userData, close }) {
 				body: JSON.stringify(data),
 			}).then(() => {
 				toast.info('Users data saved successfully');
+				close();
 			});
-			close();
 		} catch (err) {
 			toast.error('Something went wrong');
 		}
