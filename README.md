@@ -1,5 +1,10 @@
 # interview-enfec
-This repository is the part of one of my interview tasks.
+
+This repository is a result of one of my interview tasks. The project revolves around a placeholder API, specifically ```https://jsonplaceholder.typicode.com/users```. I have implemented this project using `React`, `Tailwind CSS`, and `Vite`. Notably, I utilized `react-query` for the first time to effectively manage data through API calls.
+
+Being aware of the growing popularity of `react-query` within the developer community, I saw this small project as the perfect opportunity to showcase my ability to quickly adapt and learn new technologies. Additionally, incorporating `Vite` into the project allowed me to leverage its fast and efficient development environment.
+
+By combining `React`, `Tailwind CSS`, `Vite`, and `react-query`, I aimed to demonstrate my proficiency in utilizing modern tools and frameworks to build performant and scalable web applications.
 
 ## Local Development
 To get a local copy of the code, clone it using git:
@@ -22,6 +27,8 @@ In this project, you can run the following scripts:
 ```npm run dev``` Runs the app in the development mode.
 
 ```npm run build``` Builds the app for production to the dist folder.
+
+```npm run preview``` Previews the app from the dist folder after build.
 
 ## Credits
 Vite Template React is built and maintained by [Syed NomanulHasan](https://github.com/nomaanulhasan).
