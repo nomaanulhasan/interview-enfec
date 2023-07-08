@@ -15,7 +15,6 @@ const emptyUser = {
 }
 export default function UserPopup({ userData, close }) {
 	const formData = userData ?? emptyUser;
-	console.log(formData, userData	)
 
 	const {
 		handleSubmit,
