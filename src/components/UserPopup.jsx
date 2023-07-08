@@ -25,10 +25,18 @@ export default function UserPopup({ userData, close }) {
 		resolver: yupResolver(userSchema),
 		defaultValues: formData,
 	})
-	const onSubmit = (data) => {
-		toast.info('Users data saved successfully');
-		console.log(JSON.stringify(data, null, 2));
-		close();
+	const onSubmit = async (data) => {
+		try {
+			fetch(`https://jsonplaceholder.typicode.com/users/${formData.id}`, {
+				method: 'PUT',
+				body: JSON.stringify(data),
+			}).then(() => {
+				toast.info('Users data saved successfully');
+			});
+			close();
+		} catch (err) {
+			toast.error('Something went wrong');
+		}
 	}
 
 	return (
