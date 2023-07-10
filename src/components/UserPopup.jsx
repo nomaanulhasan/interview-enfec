@@ -28,7 +28,7 @@ export default function UserPopup({ userData, close }) {
 	const onSubmit = async (data) => {
 		try {
 			fetch(`https://jsonplaceholder.typicode.com/users/${formData.id ? formData.id : ''}`, {
-				method: 'PUT',
+				method: formData.id ? 'PUT' : 'POST',
 				body: JSON.stringify(data),
 			}).then(() => {
 				toast.info('Users data saved successfully');
