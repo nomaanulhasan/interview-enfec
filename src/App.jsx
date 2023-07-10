@@ -65,7 +65,7 @@ function App() {
       // }
       try {
         setDeletedUser(userId);
-        const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, { method: 'DELETE' });
+        const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId ? userId : ''}`, { method: 'DELETE' });
         const data = res.json();
         return data;
       } catch (err) {
