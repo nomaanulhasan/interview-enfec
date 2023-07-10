@@ -31,7 +31,7 @@ export default function UserPopup({ userData, close }) {
 				method: formData.id ? 'PUT' : 'POST',
 				body: JSON.stringify(data),
 			}).then(() => {
-				toast.info('Users data saved successfully');
+				toast.info(formData.id ? 'User updated successfully' : 'New user added successfully');
 				close();
 			});
 		} catch (err) {
