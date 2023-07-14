@@ -30,6 +30,10 @@ In this project, you can run the following scripts:
 
 ```npm run preview``` Previews the app from the dist folder after build.
 
+## Screenshots
+
+![enfec](/screenshots/enfec_task.png)
+
 ## Credits
 This project is built and maintained by [Syed NomanulHasan](https://github.com/nomaanulhasan).
 
